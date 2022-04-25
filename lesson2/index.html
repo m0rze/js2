@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Интернет-магазин</div>
+    <button class="btn-cart" type="button">Корзина</button>
+</header>
+<main>
+    <div class="products"></div>
+</main>
+<section class="make-hamburger">
+    <select type="text" class="ham-select-size">
+        <option class="ham-size" value="small" data-calor="20">Маленький</option>
+        <option class="ham-size" value="big" data-calor="40">Большой</option>
+    </select>
+    <div class="topping"><input type="checkbox" class="ham-topping" data-calor="20"> <span>С сыром</span></div>
+    <div class="topping"><input type="checkbox" class="ham-topping" data-calor="5"> <span>С салатом</span></div>
+    <div class="topping"><input type="checkbox" class="ham-topping" data-calor="10"> <span>С картофелем</span></div>
+    <button class="calc-ham">Сколько калорий?</button>
+    <div class="colories-result"></div>
+</section>
+<script src="js/ham.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
