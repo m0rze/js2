@@ -88,7 +88,7 @@ class ProductList {
             .catch(error => console.log(error));
     }
 
-    getBasketList(dataId) {
+    getBasketList() {
         return fetch(`${API}/getBasket.json`)
             .then(response => response.json())
             .catch(error => console.log(error));
