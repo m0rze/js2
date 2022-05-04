@@ -82,6 +82,18 @@ class ProductList {
             .catch(error => console.log(error));
     }
 
+    deleteFromBasket(dataId) {
+        return fetch(`${API}/deleteFromBasket.json`)
+            .then(response => response.json())
+            .catch(error => console.log(error));
+    }
+
+    getBasketList(dataId) {
+        return fetch(`${API}/getBasket.json`)
+            .then(response => response.json())
+            .catch(error => console.log(error));
+    }
+
     render() {
         for (const good of this.goods) {
             console.log(good);
