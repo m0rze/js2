@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app" @click.stop="hideBasket($event)">
+    <header>
+        <div class="logo">Интернет-магазин</div>
+        <div class="cart">
+            <form action="#" class="search-form">
+                <input type="text" class="search-field" v-model="searchLine">
+                <button class="btn-search" type="button" @click="filter">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <div class="cart-section">
+                <button class="btn-cart" type="button" @click="getBasketItems">Корзина</button>
+                <div class="cart-list" :class="{show: isVisibleCart, hide: !isVisibleCart}">
+                    <h4 v-if="basket.length === 0">Нет товаров</h4>
+                    <div v-else class="basket-products">
+                        <div class="cart-product" v-for="cartProduct of basket" :key="cartProduct.id_product">
+                            <div class="cart-product-name">{{ cartProduct.product_name }}</div>
+                            <div class="cart-product-price">{{ cartProduct.price * cartProduct.quantity }}</div>
+                            <div class="cart-product-quantity">{{ cartProduct.quantity }}</div>
+                        </div>
+                        <h4 class="total-basket">
+                            Всего товаров: {{ basket.length }} на сумму {{ getBasketTotalSum }}
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="products">
+            <div class="product-item" v-for="product of filtered.length > 0 ? filtered : products" :key="product.id_product">
+                <img :src="imgCatalog" alt="Some img">
+                <div class="desc">
+                    <h3>{{product.product_name}}</h3>
+                    <p>{{product.price}}₽</p>
+                    <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
